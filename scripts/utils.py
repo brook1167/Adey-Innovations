@@ -1,10 +1,10 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
-def plot_histograms(fraud_df, numerical_features):
+def plot_histograms(fraud_df, features):
     """Plots histograms with KDE for numerical features."""
     plt.figure(figsize=(15, 4))
-    for i, feature in enumerate(numerical_features, 1):
-        plt.subplot(1, len(numerical_features), i)
+    for i, feature in enumerate(features, 1):
+        plt.subplot(1, len(features), i)
         sns.histplot(fraud_df[feature], bins=30, kde=True)
         plt.title(f'Distribution of {feature}')
         plt.xlabel(feature)
@@ -23,6 +23,4 @@ def visualize_bivariate_relationship(data, group_by_column):
     plt.title('Purchase Value vs Age')  
     plt.xlabel('Age')
     plt.ylabel('Purchase Value')
-    
-    plt.legend(title=group_by_column)  # Add legend for the category
     plt.show()
